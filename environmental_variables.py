@@ -5,11 +5,11 @@ import socket
 
 FORMAT = "utf-8";
 #host port over the internet
-HOST_PORT = 6969
+HOST_PORT = 42069
 
 #ip address(public for remote, local for hosting)
 HOST_IP = socket.gethostbyname(socket.gethostname())
-#HOST_IP = "";
+#HOST_IP = "109.102.5.149";
 
 HOST = (HOST_IP,HOST_PORT);
 
