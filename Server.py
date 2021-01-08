@@ -10,6 +10,7 @@ import threading;
 host = socket.socket(socket.AF_INET,socket.SOCK_STREAM);
 host.bind(("0.0.0.0",__env.HOST_PORT));
 
+robot = socket.socket(socket.AF_INET,socket.SOCK_STREAM);
 
 def handle_client(conn,addr):
     print("attempted connection ",addr);
@@ -28,7 +29,7 @@ def handle_client(conn,addr):
         while connected:
             msg = conn.recv(__env.MAX_MESSAGE_SIZE).decode(__env.FORMAT);
             if len(msg):
-                msg = "G" + str(driver_id) + "," + msg;
+                msg = "G-" + str(driver_id) + "," + msg;
                 print("recieved following command ");
                 print(msg);
                 if msg == __env.DISCONNECT:
@@ -36,11 +37,17 @@ def handle_client(conn,addr):
                     print("Driver disconnected, shutting down");
                     host.shutdown(socket.SHUT_RDWR)
                     host.close()
+                else:
+                    robot.send(msg.encode(__env.FORMAT));
     conn.close();
 
 def start():
     host.listen();
     print("listening");
+
+    robot.connect(__env.ROBOT);
+    print("robot connected");
+
 
     while True:
         conn,addr = host.accept();    

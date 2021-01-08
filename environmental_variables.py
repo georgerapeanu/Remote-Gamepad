@@ -4,6 +4,7 @@ DRIVER_COUNT = 2;
 ROBOT_ADDRESS = ""#robot ip addres
 ROBOT_PORT = 6969#port used to communicate with robot
 
+ROBOT = (ROBOT_ADDRESS,ROBOT_PORT);
 
 FORMAT = "utf-8";
 #host port over the internet
@@ -11,9 +12,9 @@ HOST_PORT = 42069
 
 #ip address(public for remote, local for hosting)
 #HOST_IP = socket.gethostbyname(socket.gethostname())
-HOST_IP = "109.102.5.149";
+HOST_ADDRESS = "109.102.5.149";
 
-HOST = (HOST_IP,HOST_PORT);
+HOST = (HOST_ADDRESS,HOST_PORT);
 
 DISCONNECT = "!DISCONNECT";
 
