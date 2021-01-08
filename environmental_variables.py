@@ -1,7 +1,5 @@
-import socket
-
-#message format will have the following format
-
+DRIVER_ADDRESSES = ["127.0.0.1"];
+DRIVER_COUNT = 2;    
 
 FORMAT = "utf-8";
 #host port over the internet

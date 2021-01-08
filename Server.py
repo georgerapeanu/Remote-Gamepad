@@ -10,20 +10,17 @@ import threading;
 ROBOT_ADDRESS = ""#robot ip addres
 ROBOT_PORT = 12345#port used to communicate with robot
 
-DRIVER_ADDRESSES = ["127.0.0.1"];
-DRIVER_COUNT = 2;
-    
 host = socket.socket(socket.AF_INET,socket.SOCK_STREAM);
 host.bind(("0.0.0.0",__env.HOST_PORT));
 
 
 def handle_client(conn,addr):
     print("attempted connection ",addr);
-    if addr[0] not in DRIVER_ADDRESSES:
+    if addr[0] not in __env.DRIVER_ADDRESSES:
         print("address not recognized, connection failed");
         conn.send(__env.ERROR_MESSAGES[1].encode(__env.FORMAT));
 
-    elif threading.activeCount() - 1 > DRIVER_COUNT:
+    elif threading.activeCount() - 1 > __env.DRIVER_COUNT:
         conn.send(__env.ERROR_MESSAGES[0].encode(__env.FORMAT));
     else:
         driver_id = threading.activeCount() - 1;
@@ -46,7 +43,7 @@ def handle_client(conn,addr):
 
 def start():
     host.listen();
-    print("listening at ",__env.HOST);
+    print("listening");
 
     while True:
         conn,addr = host.accept();    

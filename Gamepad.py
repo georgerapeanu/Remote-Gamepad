@@ -88,34 +88,34 @@ class Gamepad:
     
     def get_transmission_message(self):
         message_components = [];
-        message_components.append("A." + str(self.A));
-        message_components.append("B." + str(self.B));
-        message_components.append("X." + str(self.X));
-        message_components.append("Y." + str(self.Y));
+        message_components.append("A-" + str(self.A));
+        message_components.append("B-" + str(self.B));
+        message_components.append("X-" + str(self.X));
+        message_components.append("Y-" + str(self.Y));
         
-        message_components.append("D_UP." + str(self.DPAD_UP));
-        message_components.append("D_DN." + str(self.DPAD_DOWN));
-        message_components.append("D_LT." + str(self.DPAD_LEFT));
-        message_components.append("D_RT." + str(self.DPAD_RIGHT));
+        message_components.append("D_UP-" + str(self.DPAD_UP));
+        message_components.append("D_DN-" + str(self.DPAD_DOWN));
+        message_components.append("D_LT-" + str(self.DPAD_LEFT));
+        message_components.append("D_RT-" + str(self.DPAD_RIGHT));
         
-        message_components.append("L_BMP." + str(self.LEFT_BUMPER));
-        message_components.append("R_BMP." + str(self.RIGHT_BUMPER));
-        message_components.append("L_PRS." + str(self.LEFT_STICK_PRESSED));
-        message_components.append("R_PRS." + str(self.RIGHT_STICK_PRESSED));
+        message_components.append("L_BMP-" + str(self.LEFT_BUMPER));
+        message_components.append("R_BMP-" + str(self.RIGHT_BUMPER));
+        message_components.append("L_PRS-" + str(self.LEFT_STICK_PRESSED));
+        message_components.append("R_PRS-" + str(self.RIGHT_STICK_PRESSED));
         
-        message_components.append("L_TRG." + str(self.LEFT_TRIGGER));
-        message_components.append("R_TRG." + str(self.RIGHT_TRIGGER));
+        message_components.append("L_TRG-" + str(self.LEFT_TRIGGER));
+        message_components.append("R_TRG-" + str(self.RIGHT_TRIGGER));
 
 
-        message_components.append("L_X." + str(self.LEFT_STICK_X));
-        message_components.append("L_Y." + str(self.LEFT_STICK_Y));
-        message_components.append("R_X." + str(self.RIGHT_STICK_X));
-        message_components.append("R_Y." + str(self.RIGHT_STICK_Y));
+        message_components.append("L_X-" + str(self.LEFT_STICK_X));
+        message_components.append("L_Y-" + str(self.LEFT_STICK_Y));
+        message_components.append("R_X-" + str(self.RIGHT_STICK_X));
+        message_components.append("R_Y-" + str(self.RIGHT_STICK_Y));
 
         msg = message_components[0];
 
         for i in range(1,len(message_components)):
-            msg = msg + "_" + message_components[i];
+            msg = msg + "|" + message_components[i];
 
         return msg;
 
