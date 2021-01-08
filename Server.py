@@ -7,9 +7,6 @@ import environmental_variables as __env;
 import socket;
 import threading;
 
-ROBOT_ADDRESS = ""#robot ip addres
-ROBOT_PORT = 12345#port used to communicate with robot
-
 host = socket.socket(socket.AF_INET,socket.SOCK_STREAM);
 host.bind(("0.0.0.0",__env.HOST_PORT));
 
@@ -31,7 +28,7 @@ def handle_client(conn,addr):
         while connected:
             msg = conn.recv(__env.MAX_MESSAGE_SIZE).decode(__env.FORMAT);
             if len(msg):
-                msg = "G" + str(driver_id) + "_" + msg;
+                msg = "G" + str(driver_id) + "," + msg;
                 print("recieved following command ");
                 print(msg);
                 if msg == __env.DISCONNECT:

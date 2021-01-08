@@ -115,7 +115,7 @@ class Gamepad:
         msg = message_components[0];
 
         for i in range(1,len(message_components)):
-            msg = msg + "|" + message_components[i];
+            msg = msg + "," + message_components[i];
 
         return msg;
 
