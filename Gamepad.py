@@ -49,7 +49,7 @@ class Gamepad:
             self.gamepad = pygame.joystick.Joystick(i);
             self.gamepad.init();
             print("Trying joystick " + str(i));
-            time.sleep(5);
+            time.sleep(1);
             pygame.event.pump();
             if self.gamepad.get_button(0) == 1:
                 print("gamepad initialized");

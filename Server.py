@@ -14,7 +14,7 @@ DRIVER_ADDRESSES = ["127.0.0.1"];
 DRIVER_COUNT = 2;
     
 host = socket.socket(socket.AF_INET,socket.SOCK_STREAM);
-host.bind(__env.HOST);
+host.bind(("0.0.0.0",__env.HOST_PORT));
 
 
 def handle_client(conn,addr):
