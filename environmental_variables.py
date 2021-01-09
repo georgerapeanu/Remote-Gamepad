@@ -1,7 +1,7 @@
 DRIVER_ADDRESSES = ["127.0.0.1"];
 DRIVER_COUNT = 2;    
 
-ROBOT_ADDRESS = ""#robot ip addres
+ROBOT_ADDRESS = "192.168.43.1"#robot ip addres
 ROBOT_PORT = 6969#port used to communicate with robot
 
 ROBOT = (ROBOT_ADDRESS,ROBOT_PORT);

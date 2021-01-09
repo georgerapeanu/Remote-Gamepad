@@ -6,6 +6,8 @@ import environmental_variables as __env;
 
 import socket;
 import threading;
+import os;
+import sys;
 
 host = socket.socket(socket.AF_INET,socket.SOCK_STREAM);
 host.bind(("0.0.0.0",__env.HOST_PORT));
@@ -48,4 +50,14 @@ def start():
         conn,addr = host.accept();    
         thread = threading.Thread(target=handle_client,args = (conn,addr));
         thread.start();
-start();
+
+try:
+    start()
+except KeyboardInterrupt:
+    print('Interrupted')
+    try:
+        host.shutdown(socket.SHUT_RDWR)
+        host.close()
+        sys.exit(0)
+    except SystemExit:
+        os._exit(0)
