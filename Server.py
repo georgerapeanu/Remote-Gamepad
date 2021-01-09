@@ -39,7 +39,7 @@ def handle_client(conn,addr):
                 #    print("Driver disconnected, shutting down");
                 #    host.shutdown(socket.SHUT_RDWR)
                 #    host.close()
-                robot.sendto(__ev.ROBOT_ADDRESS,msg.encode(__env.FORMAT));
+                robot.sendto(__env.ROBOT_ADDRESS,msg.encode(__env.FORMAT));
     conn.close();
 
 def start():
