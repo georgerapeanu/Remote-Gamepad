@@ -6,6 +6,8 @@ import time;
 import threading;
 import Gamepad;
 
+#TODO resend message after a certain time because of udp shit and packet loss 
+
 def start():
     gamepad = Gamepad.Gamepad();
 

@@ -31,7 +31,7 @@ def handle_client(conn,addr):
         while connected:
             msg = conn.recv(__env.MAX_MESSAGE_SIZE).decode(__env.FORMAT);
             if len(msg):
-                msg = "G-" + str(driver_id) + "," + msg;
+                msg = "G|" + str(driver_id) + "," + msg;
                 print("recieved following command ");
                 print(msg);
                 #if msg == __env.DISCONNECT:
