@@ -72,10 +72,10 @@ class Gamepad:
         self.DPAD_LEFT = 1 if self.gamepad.get_hat(0)[0] == -1 else 0;
         self.DPAD_RIGHT = 1 if self.gamepad.get_hat(0)[0] == 1 else 0;
         
-        self.LEFT_BUMPER = self.gamepad.get_button(9);
-        self.RIGHT_BUMPER = self.gamepad.get_button(10);
-        self.LEFT_STICK_PRESSED = self.gamepad.get_button(7);
-        self.RIGHT_STICK_PRESSED = self.gamepad.get_button(8);
+        self.LEFT_BUMPER = self.gamepad.get_button(4);
+        self.RIGHT_BUMPER = self.gamepad.get_button(5);
+        self.LEFT_STICK_PRESSED = self.gamepad.get_button(8);
+        self.RIGHT_STICK_PRESSED = self.gamepad.get_button(9);
  
         #TODO check if they have the same orientation as the FTC gamepad
         self.LEFT_TRIGGER = self.gamepad.get_axis(4);
