@@ -1,5 +1,7 @@
 #!/bin/python3
 
+import joystick_mapping as mapping;
+
 import pygame
 import time
 import threading
@@ -62,29 +64,30 @@ class Gamepad:
 
     def update_inputs(self):
         pygame.event.pump();
-        self.A = self.gamepad.get_button(0);
-        self.B = self.gamepad.get_button(1);
-        self.X = self.gamepad.get_button(2);
-        self.Y = self.gamepad.get_button(3);
+        
+        self.A = self.gamepad.get_button(mapping.A_BUTTON);
+        self.B = self.gamepad.get_button(mapping.B_BUTTON);
+        self.X = self.gamepad.get_button(mapping.X_BUTTON);
+        self.Y = self.gamepad.get_button(mapping.Y_BUTTON);
 
         self.DPAD_UP = 1 if self.gamepad.get_hat(0)[1] == 1 else 0;
         self.DPAD_DOWN = 1 if self.gamepad.get_hat(0)[1] == -1 else 0;
         self.DPAD_LEFT = 1 if self.gamepad.get_hat(0)[0] == -1 else 0;
         self.DPAD_RIGHT = 1 if self.gamepad.get_hat(0)[0] == 1 else 0;
         
-        self.LEFT_BUMPER = self.gamepad.get_button(4);
-        self.RIGHT_BUMPER = self.gamepad.get_button(5);
-        self.LEFT_STICK_PRESSED = self.gamepad.get_button(8);
-        self.RIGHT_STICK_PRESSED = self.gamepad.get_button(9);
+        self.LEFT_BUMPER = self.gamepad.get_button(mapping.LEFT_BUMPER_BUTTON);
+        self.RIGHT_BUMPER = self.gamepad.get_button(mapping.RIGHT_BUMPER_BUTTON);
+        self.LEFT_STICK_PRESSED = self.gamepad.get_button(mapping.LEFT_STICK_BUTTON);
+        self.RIGHT_STICK_PRESSED = self.gamepad.get_button(mapping.RIGHT_STICK_BUTTON);
  
         #TODO check if they have the same orientation as the FTC gamepad
-        self.LEFT_TRIGGER = self.gamepad.get_axis(4);
-        self.RIGHT_TRIGGER = self.gamepad.get_axis(5);
+        self.LEFT_TRIGGER = (1 + self.gamepad.get_axis(mapping.LEFT_TRIGGER_AXIS)) / 2;
+        self.RIGHT_TRIGGER = (1 + self.gamepad.get_axis(mapping.RIGHT_TRIGGER_AXIS)) / 2;
 
-        self.LEFT_STICK_X = self.gamepad.get_axis(0);
-        self.LEFT_STICK_Y = self.gamepad.get_axis(1);
-        self.RIGHT_STICK_X = self.gamepad.get_axis(2);
-        self.RIGHT_STICK_Y = self.gamepad.get_axis(3);
+        self.LEFT_STICK_X = self.gamepad.get_axis(mapping.LEFT_STICK_X_AXIS);
+        self.LEFT_STICK_Y = self.gamepad.get_axis(mapping.LEFT_STICK_Y_AXIS) * (1 if mapping.INVERT_Y_AXIS == False else -1);
+        self.RIGHT_STICK_X = self.gamepad.get_axis(mapping.RIGHT_STICK_X_AXIS);
+        self.RIGHT_STICK_Y = self.gamepad.get_axis(mapping.RIGHT_STICK_Y_AXIS) * (1 if mapping.INVERT_Y_AXIS == False else -1);
     
     def get_transmission_message(self):
         message_components = [];

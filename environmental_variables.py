@@ -1,3 +1,5 @@
+import socket;
+
 DRIVER_ADDRESSES = ["127.0.0.1"];
 DRIVER_COUNT = 2;    
 
@@ -11,8 +13,8 @@ FORMAT = "utf-8";
 HOST_PORT = 42069
 
 #ip address(public for remote, local for hosting)
-#HOST_IP = socket.gethostbyname(socket.gethostname())
-HOST_ADDRESS = "109.102.5.149";
+HOST_ADDRESS = socket.gethostbyname(socket.gethostname())
+#HOST_ADDRESS = "109.102.5.149";
 
 HOST = (HOST_ADDRESS,HOST_PORT);
 
