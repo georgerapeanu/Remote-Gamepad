@@ -58,7 +58,7 @@ import java.nio.charset.StandardCharsets;
 //Implements a LinearOpMode that gets its gamepad inputs from the wifi-direct packets
 
 @TeleOp(name="RemoteDriveTest", group="Linear Opmode")
-//@Disabled
+@Disabled
 public class RemoteDrive extends LinearOpMode {
 
     //Wifi-direct socket
