@@ -1,5 +1,7 @@
 #!/bin/python3
 
+#This class serves as interface between Client.py and pygame
+
 import joystick_mapping as mapping;
 
 import pygame
@@ -9,6 +11,7 @@ import sys
 
 #implemented with the help of https://www.pygame.org/docs/ref/joystick.html
 class Gamepad:
+    #initializing all the fields we need(or more exactly gamepad inputs).
     def __init__(self):
         self.A = 0;
         self.B = 0;
@@ -32,30 +35,34 @@ class Gamepad:
         self.START = 0;
         self.GUIDE = 0;
         
+        #intiliazing pygame
         pygame.init();
             
     
-        pygame.display.init()
-        pygame.joystick.init()
+        pygame.display.init();
+        pygame.joystick.init();
     
         joystick_count = pygame.joystick.get_count();
+        #if no joystick/gamepad is found then we exit the program
         if joystick_count == 0:
             sys.exit("ERROR no joystick detected");
-       
-        joysticks = [];
-    
-        print("detected " + str(joystick_count))
+      
+
+        #This detects the active gamepad of the driver(in case the driver has multiple plugged-in) 
+        print("detected " + str(joystick_count));
         print("This will cycle through them all with a delay of 3s.");
         print("Hold the A button on your gamepad when its name shows up until the script tells you to release it");
     
         idx = -1;
     
+        #Trying every gamepad
         for i in range(0,joystick_count):
             self.gamepad = pygame.joystick.Joystick(i);
             self.gamepad.init();
             print("Trying joystick " + str(i));
             time.sleep(3);
             pygame.event.pump();
+            #If the A button is pressed then this is the active gamepad
             if self.gamepad.get_button(mapping.A_BUTTON) == 1:
                 print("gamepad initialized");
                 idx = i;
@@ -65,6 +72,7 @@ class Gamepad:
         if idx == -1:
             sys.exit("ERROR no gamepad could be determined");
 
+    #This asks pygame for the current gamepad inputs.
     def update_inputs(self):
         pygame.event.pump();
         
@@ -95,6 +103,7 @@ class Gamepad:
         self.START = self.gamepad.get_button(mapping.START_BUTTON);
         self.GUIDE = self.gamepad.get_button(mapping.GUIDE_BUTTON);
     
+    #This transforms the state of the input into a string that can be sent to the server by the client.
     def get_transmission_message(self):
         message_components = [];
         message_components.append("A~" + str(self.A));
