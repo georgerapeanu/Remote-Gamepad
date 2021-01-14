@@ -5,7 +5,7 @@ import time
 import threading
 import sys
 
-TIME_INTERVAL = 1;
+TIME_INTERVAL = 3;
 
 def get_pressed_buttons(gamepad):
     pygame.event.pump();
