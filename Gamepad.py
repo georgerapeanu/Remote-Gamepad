@@ -94,9 +94,9 @@ class Gamepad:
         self.LEFT_TRIGGER = (self.gamepad.get_axis(mapping.LEFT_TRIGGER_AXIS) - mapping.LEFT_TRIGGER_LOW) / (mapping.LEFT_TRIGGER_HIGH - mapping.LEFT_TRIGGER_LOW);
         self.RIGHT_TRIGGER = (self.gamepad.get_axis(mapping.RIGHT_TRIGGER_AXIS) - mapping.RIGHT_TRIGGER_LOW) / (mapping.RIGHT_TRIGGER_HIGH - mapping.RIGHT_TRIGGER_LOW);
 
-        self.LEFT_STICK_X = self.gamepad.get_axis(mapping.LEFT_STICK_X_AXIS);
+        self.LEFT_STICK_X = self.gamepad.get_axis(mapping.LEFT_STICK_X_AXIS) * (1 if mapping.INVERT_X_AXIS == False else -1);
         self.LEFT_STICK_Y = self.gamepad.get_axis(mapping.LEFT_STICK_Y_AXIS) * (1 if mapping.INVERT_Y_AXIS == False else -1);
-        self.RIGHT_STICK_X = self.gamepad.get_axis(mapping.RIGHT_STICK_X_AXIS);
+        self.RIGHT_STICK_X = self.gamepad.get_axis(mapping.RIGHT_STICK_X_AXIS) * (1 if mapping.INVERT_X_AXIS == False else -1);
         self.RIGHT_STICK_Y = self.gamepad.get_axis(mapping.RIGHT_STICK_Y_AXIS) * (1 if mapping.INVERT_Y_AXIS == False else -1);
         
         self.BACK = self.gamepad.get_button(mapping.BACK_BUTTON);

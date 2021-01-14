@@ -214,6 +214,7 @@ def main():
         time.sleep(0.1);
         a = get_active_axes(gamepad,default_values);
         if len(a) == 1:
+            f.write("INVERT_X_AXIS = " + ("True" if a[0][1] < 0 else "False") + "\n");
             f.write("LEFT_STICK_X_AXIS = " + str(a[0][0]) + "\n");
             break;
     
@@ -227,7 +228,7 @@ def main():
         a = get_active_axes(gamepad,default_values);
         if len(a) == 1:
             f.write("LEFT_STICK_Y_AXIS = " + str(a[0][0]) + "\n");
-            f.write("INVERT_Y_AXIS = " + ("True" if a[0][1] < 0 else False) + "\n");
+            f.write("INVERT_Y_AXIS = " + ("True" if a[0][1] < 0 else "False") + "\n");
             break;
 
     print("Release the left stick...\n");
