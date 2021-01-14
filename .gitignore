@@ -1,3 +1,4 @@
 #local shit
 ./environment_variables.py
+./__pycache__
 
