@@ -5,7 +5,7 @@ import time
 import threading
 import sys
 
-TIME_INTERVAL = 3;
+TIME_INTERVAL = 2;
 
 def get_pressed_buttons(gamepad):
     pygame.event.pump();
@@ -19,7 +19,7 @@ def get_active_axes(gamepad,default_values):
     ans = [];
     for i in range(0,gamepad.get_numaxes()):
         #print(i,gamepad.get_axis(i),default_values[i]);
-        if abs(gamepad.get_axis(i) - default_values[i]) > 1e-4:
+        if abs(gamepad.get_axis(i) - default_values[i]) > 5e-2:
             ans.append((i,gamepad.get_axis(i)));
     return ans;
 
@@ -228,7 +228,7 @@ def main():
         a = get_active_axes(gamepad,default_values);
         if len(a) == 1:
             f.write("LEFT_STICK_Y_AXIS = " + str(a[0][0]) + "\n");
-            f.write("INVERT_Y_AXIS = " + ("True" if a[0][1] < 0 else "False") + "\n");
+            f.write("INVERT_Y_AXIS = " + ("True" if a[0][1] > 0 else "False") + "\n");
             break;
 
     print("Release the left stick...\n");

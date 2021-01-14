@@ -15,8 +15,8 @@ FORMAT = "utf-8";#Message encoding, has to be the same with the one int RemoteDr
 HOST_PORT = 42069#host port
 
 #Host ip address
-HOST_ADDRESS = socket.gethostbyname(socket.gethostname()) #This should be used when running in LAN, mainly for testing
-#HOST_ADDRESS = ""; #This should be the host's public address
+#HOST_ADDRESS = socket.gethostbyname(socket.gethostname()) #This should be used when running in LAN, mainly for testing
+HOST_ADDRESS = "172.22.216.79"; #This should be the host's public address
 
 HOST = (HOST_ADDRESS,HOST_PORT);
 
