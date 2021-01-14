@@ -1,7 +1,5 @@
 #!/bin/python3
 
-#TODO establish robot communication
-
 import environmental_variables as __env; 
 
 import socket;
