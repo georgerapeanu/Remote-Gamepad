@@ -76,5 +76,7 @@ Lazar Mihai
 The camera feed is handled through Google Meet, Discord or Zoom or whichever service you choose to use.
 Our software does not connect to camera, it only sends the gamepad control commands over the internet.
 
+Also, this solution has been tested mainly on linux, so we cannot guarantee that the software will work as expected on other OS's, even though it should.
+
 © Architechs FTC Team RO028 | All Rights Reserved 2021
 
