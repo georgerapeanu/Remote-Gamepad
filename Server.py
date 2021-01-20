@@ -51,10 +51,13 @@ def handle_client(conn,addr):
         conn.settimeout(__env.TIMEOUT_DURATION);
         connected = True;
 
+        buff = "";
+
         while connected and SERVER_RUNNING:
             try:
                 #Await driver commands
                 msg = conn.recv(__env.MAX_MESSAGE_SIZE).decode(__env.FORMAT);
+                buff += msg;
             except socket.timeout:
                 #If driver timed out we assume they disconnected, so we end the connection,free his spot(this allows the driver to reconnect and the second driver to take over)  and output a debug message
                 connected = False;
@@ -79,12 +82,15 @@ def handle_client(conn,addr):
             if promoted:
                 conn.send(("Promoted to driver #" + str(driver_id)).encode(__env.FORMAT));
 
+            pieces = buff.split("|");
+            buff = pieces.pop();
             #We add the final piece to our message, that being the gamepad number, and send it to the robot
-            if len(msg) > 0:
-                msg = "G~" + str(driver_id) + "," + msg;
-                print("recieved following command ");
-                print(msg);
-                robot.sendto(msg.encode(__env.FORMAT),__env.ROBOT);
+            for msg in pieces:
+                if len(msg) > 0:
+                    msg = "G~" + str(driver_id) + "," + msg;
+                    print("recieved following command ");
+                    print(msg);
+                    robot.sendto(msg.encode(__env.FORMAT),__env.ROBOT);
 
     if SERVER_RUNNING == False and connected == True:#if the connection is still active but the server is shutting down let the client know to disconnect
         conn.send(__env.DISCONNECT.encode(__env.FORMAT));

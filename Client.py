@@ -50,7 +50,7 @@ def start():
     while True:
         time.sleep(0.01);
         gamepad.update_inputs();
-        message = gamepad.get_transmission_message();
+        message = gamepad.get_transmission_message() + "|";#'|' separator between packets
         if message != last_transmission_message or (time.time() - last_time >= 1):
             last_transmission_message = message;
             last_time = time.time();
