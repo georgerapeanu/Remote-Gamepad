@@ -41,7 +41,7 @@ Our measurements indicate that the worst case latency of this project is about 5
 
   Now, your host is ready to recieve commands from the Driver Computers(s).
 
-  ### Part 4: Setup the Driver Computer (a computer that is used to remotely control the robot)
+  ### Part 3: Setup the Driver Computer (a computer that is used to remotely control the robot)
   
  1. On the Driver Computer, you should install the following software:
     * Zerotier(https://www.zerotier.com/download/)
