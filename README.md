@@ -26,7 +26,7 @@ Our measurements indicate that the worst case latency of this project is about 5
 * Zerotier(https://www.zerotier.com/download/)
 * Python3(https://www.python.org/downloads/) - make sure to add it to PATH
 * Pip3(https://pip.pypa.io/en/stable/installing/) - make sure to add it to PATH
-* The following pip3 modules: ```socket```, ```threading```, ```os```, ```sys```, ```time```, ```pygame```(some of them might come with the default python installer) 
+* The following pip3 modules: ```socket```, ```threading```, ```os```, ```sys```, ```time```(these should be installed by default with python so dont worry if you get errors when you are trying to install them) and ```pygame```(this might ship with the python installer but it also might not) 
   2. Plug in a USB WiFi adapter/Ethernet Cable to the Host Computer
   3. Connect the one Wifi to the Control Hub or Robot Controller, and ensure that the other internet connection is connected to your local router
   4. Here you have two options for making this computer discoverable by the drivers:
@@ -41,15 +41,15 @@ Our measurements indicate that the worst case latency of this project is about 5
 
   Now, your host is ready to recieve commands from the Driver Computers(s).
 
-  ### Part 4: Setup the Driver Computer (a computer that is used to remotely control the robot)
+  ### Part 3: Setup the Driver Computer (a computer that is used to remotely control the robot)
   
  1. On the Driver Computer, you should install the following software:
     * Zerotier(https://www.zerotier.com/download/)
     * Python3(https://www.python.org/downloads/)
     * Pip3(https://pip.pypa.io/en/stable/installing/)
-    * The following pip3 modules: ```socket```, ```threading```, ```os```, ```sys```, ```time```, ```pygame```(some of them might come with the default python installer) 
- 2. Plug in a USB gamepad (ex. Logitech F310). 
- 3. Open a terminal/command prompt window in the current directory. type "python3 Config.py". This should configure your local variant of this project to work correctly with your gamepad. - this can be done as many times as you like, but it is necessary to do it only once before the first use of this project.
+    * The following pip3 modules: ```socket```, ```threading```, ```os```, ```sys```, ```time```(these should be installed by default with python so dont worry if you get errors when you are trying to install them) and ```pygame```(this might ship with the python installer but it also might not) 
+ 2. Plug in a USB gamepad . 
+ 3. Open a terminal/command prompt window in the current directory. type "python3 Config.py". This should configure your local variant of this project to work correctly with your gamepad. - this can be done as many times as you like, but it is necessary to do it only once before the first use of this project.(depending on the OS you are using, guide might not get registered properly. If that's the case, feel free to press any other button you want if you dont plan on using the guide button to control your robot)
  4. Edit ```environmental_varialbles.py``` accordingly(More exactly you should modify the HOST_ADDRESS(the public ip / zerotier ip) and HOST_PORT(the port used by the host to run the server)
  5. In the same terminal/ command prompt window, type ```python3 Client.py```. Your driver computer should now succesfully send commands to the server computer(you can verify this by seeing some messages on the server terminal).
 
@@ -75,6 +75,8 @@ Lazar Mihai
 
 The camera feed is handled through Google Meet, Discord or Zoom or whichever service you choose to use.
 Our software does not connect to camera, it only sends the gamepad control commands over the internet.
+
+Also, this solution has been tested mainly on linux, so we cannot guarantee that the software will work as expected on other OS's, even though it should.
 
 © Architechs FTC Team RO028 | All Rights Reserved 2021
 
