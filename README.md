@@ -36,8 +36,8 @@ Our measurements indicate that the worst case latency of this project is about 5
 
     ###### Method 2: Zerotier
     You should log into zerotier and create a network. After that you should connect to that network with the host and drivers computers. After that, you should  Edit ```environmental_variables.py``` accordingly.(More exactly you should modify the ROBOT_ADDRESS(the ip used in ```RemoteDrive.java```),ROBOT_PORT(the port used in ```RemoteDrive.java```),HOST_ADDRESS(the zerotier ip of the host),HOST_PORT(the port used to run the server) and DRIVER_ADDRESSES(the public ip of the drivers)).
-
-  5. Open a terminal/command prompt window and type ```python3 Server.py```
+  5. You should remain connected to the internet and also connect to the Robot via wifi direct(to remain connected to the internet, you can either stay connected through an ethernet cable or through an usb wifi adapter).
+  6. Open a terminal/command prompt window and type ```python3 Server.py```
 
   Now, your host is ready to recieve commands from the Driver Computers(s).
 
