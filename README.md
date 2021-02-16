@@ -2,6 +2,9 @@
 
 Enables remote Driver-Controlled TeleOp over the internet for FIRST Tech Challenge teams.
 
+Check out our youtube teaser:
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=7K4IGvKcZPA" target="_blank"><img src="http://img.youtube.com/vi/bDJbzP2qWbc/0.jpg" alt="Unable to Load Image" width="480" height="360" border="0" /></a>
+
 # About RemoteDrive
 
 The COVID-19 pandemic left FIRST Tech Challenge competitions in a weird place: due to local restriction, teams might not be able to all meet up and work and control the robot. There are many teams who mainly use online application like Google Meet, Discord or Zoom, but getting the robot to be able to be controlled remotely is tricky. This project's purpose is to make this remote control feature available and easily accessible to any FTC team.
