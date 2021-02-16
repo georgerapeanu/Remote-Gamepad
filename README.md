@@ -52,7 +52,14 @@ Our measurements indicate that the worst case latency of this project is about 5
  3. Open a terminal/command prompt window in the current directory. type "python3 Config.py". This should configure your local variant of this project to work correctly with your gamepad. - this can be done as many times as you like, but it is necessary to do it only once before the first use of this project.(depending on the OS you are using, guide might not get registered properly. If that's the case, feel free to press any other button you want if you dont plan on using the guide button to control your robot)
  4. Edit ```environmental_varialbles.py``` accordingly(More exactly you should modify the HOST_ADDRESS(the public ip / zerotier ip) and HOST_PORT(the port used by the host to run the server)
  5. In the same terminal/ command prompt window, type ```python3 Client.py```. Your driver computer should now succesfully send commands to the server computer(you can verify this by seeing some messages on the server terminal).
-
+ 
+ ### Part 4: Java integration   
+ 1. Import the ```RemoteDrive.java``` file to your project
+ 2. Now, for any ```LinearOpMode``` you have written and want to make it work remotely, just replace the class it inherits from(from ```LinearOpMode``` to ```RemoteDrive```).
+ 3. after runOpMode() type super._init(); 
+    after waitForStart() type super.after_start(); 
+    after waitForStart() type super.after_start(); 
+    finally, type super_end(); at the end of  runOpMode
 # Common Errors
 
   ### Port ____ is currently in use on your machine. Please try a different port.
