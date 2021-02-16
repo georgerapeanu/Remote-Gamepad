@@ -2,7 +2,8 @@
 
 Enables remote Driver-Controlled TeleOp over the internet for FIRST Tech Challenge teams.
 
-Check out our youtube teaser:http://www.youtube.com/watch?feature=player_embedded&v=7K4IGvKcZPA
+Check out our youtube teaser:
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=7K4IGvKcZPA" target="_blank"><img src="https://imgur.com/a/9Aq8GdT" alt="Unable to Load Image" width="480" height="360" border="0" /></a>
 
 # About RemoteDrive
 
