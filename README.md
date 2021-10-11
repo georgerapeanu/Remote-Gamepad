@@ -2,6 +2,9 @@
 
 Enables remote Driver-Controlled TeleOp over the internet for FIRST Tech Challenge teams.
 
+Check out our youtube teaser:
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=7K4IGvKcZPA" target="_blank"><img src="https://imgur.com/a/9Aq8GdT" alt="Unable to Load Image" width="480" height="360" border="0" /></a>
+
 # About RemoteDrive
 
 The COVID-19 pandemic left FIRST Tech Challenge competitions in a weird place: due to local restriction, teams might not be able to all meet up and work and control the robot. There are many teams who mainly use online application like Google Meet, Discord or Zoom, but getting the robot to be able to be controlled remotely is tricky. This project's purpose is to make this remote control feature available and easily accessible to any FTC team.
@@ -36,8 +39,8 @@ Our measurements indicate that the worst case latency of this project is about 5
 
     ###### Method 2: Zerotier
     You should log into zerotier and create a network. After that you should connect to that network with the host and drivers computers. After that, you should  Edit ```environmental_variables.py``` accordingly.(More exactly you should modify the ROBOT_ADDRESS(the ip used in ```RemoteDrive.java```),ROBOT_PORT(the port used in ```RemoteDrive.java```),HOST_ADDRESS(the zerotier ip of the host),HOST_PORT(the port used to run the server) and DRIVER_ADDRESSES(the public ip of the drivers)).
-
-  5. Open a terminal/command prompt window and type ```python3 Server.py```
+  5. You should remain connected to the internet and also connect to the Robot via wifi direct(to remain connected to the internet, you can either stay connected through an ethernet cable or through an usb wifi adapter).
+  6. Open a terminal/command prompt window and type ```python3 Server.py```
 
   Now, your host is ready to recieve commands from the Driver Computers(s).
 
@@ -52,7 +55,14 @@ Our measurements indicate that the worst case latency of this project is about 5
  3. Open a terminal/command prompt window in the current directory. type "python3 Config.py". This should configure your local variant of this project to work correctly with your gamepad. - this can be done as many times as you like, but it is necessary to do it only once before the first use of this project.(depending on the OS you are using, guide might not get registered properly. If that's the case, feel free to press any other button you want if you dont plan on using the guide button to control your robot)
  4. Edit ```environmental_varialbles.py``` accordingly(More exactly you should modify the HOST_ADDRESS(the public ip / zerotier ip) and HOST_PORT(the port used by the host to run the server)
  5. In the same terminal/ command prompt window, type ```python3 Client.py```. Your driver computer should now succesfully send commands to the server computer(you can verify this by seeing some messages on the server terminal).
-
+ 
+ ### Part 4: Java integration   
+ 1. Import the ```RemoteDrive.java``` file to your project
+ 2. Now, for any ```LinearOpMode``` you have written and want to make it work remotely, just replace the class it inherits from(from ```LinearOpMode``` to ```RemoteDrive```).
+ 3. after runOpMode() type super._init(); 
+    after waitForStart() type super.after_start(); 
+    after waitForStart() type super.after_start(); 
+    finally, type super_end(); at the end of  runOpMode
 # Common Errors
 
   ### Port ____ is currently in use on your machine. Please try a different port.
