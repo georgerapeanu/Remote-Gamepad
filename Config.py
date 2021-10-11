@@ -1,12 +1,15 @@
 #!/bin/python3
 
+#importing libraries
 import pygame
 import time
 import threading
 import sys
 
+#the time an user has to press/release buttons
 TIME_INTERVAL = 2;
 
+#get pressed user buttons between the last and current check
 def get_pressed_buttons(gamepad):
     pygame.event.pump();
     ans = [];
@@ -14,6 +17,8 @@ def get_pressed_buttons(gamepad):
         if gamepad.get_button(i):
             ans.append(i);
     return ans;
+
+#gets the used axis between the last and current check
 def get_active_axes(gamepad,default_values):
     pygame.event.pump();
     ans = [];
@@ -24,24 +29,27 @@ def get_active_axes(gamepad,default_values):
     return ans;
 
 def main():
+
+    #intializing pygame
     pygame.init();
-            
-    
     pygame.display.init()
     pygame.joystick.init()
     
+    #getting the number of plugged in joysticks
     joystick_count = pygame.joystick.get_count();
     
     if joystick_count == 0:
         sys.exit("ERROR no joystick detected");
     
     
+    #printing user instructions
     print("detected " + str(joystick_count))
     print("This will cycle through them all with a delay of " + str(TIME_INTERVAL) + "s.");
     print("Hold the A button on your gamepad when its name shows up until the script tells you to release it");
  
+
+    #checking all gamepads in order to detect the used one
     idx = -1;
- 
     gamepad = "";
 
     for i in range(0,joystick_count):
@@ -55,10 +63,12 @@ def main():
             idx = i;
             break;
         gamepad.quit();
-        
+    
+    #if none found, throw an error
     if idx == -1:
         sys.exit("ERROR no gamepad could be determined");
    
+    #getting the default values of all gamepad inputs
     pygame.event.pump();
     default_values = [];
     for i in range(0,gamepad.get_numaxes()):
@@ -66,10 +76,11 @@ def main():
 
     time.sleep(TIME_INTERVAL);
 
+    #opening the config file
     f = open("joystick_mapping.py","w");
 
+    #promptin user with instructions for configuring all buttons and axis
     print("\n");
-    
     print("Press the A button on your gamepad...\n")
 
     while(True):

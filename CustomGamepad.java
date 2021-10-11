@@ -1,6 +1,6 @@
 package org.firstinspires.ftc.teamcode;
 
-//Implemens a custom gamepad class that uses the same variables as the FTC one, but doesnt implement the other methods
+//Implements a custom gamepad class that uses the same variables as the FTC one, but doesnt implement the other methods
 public class CustomGamepad {
     boolean a;
     boolean b;

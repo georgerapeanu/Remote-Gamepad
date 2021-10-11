@@ -1,0 +1,9 @@
+pygame 2.0.1 (SDL 2.0.14, Python 3.8.5)
+Hello from the pygame community. https://www.pygame.org/contribute.html
+detected 1
+This will cycle through them all with a delay of 3s.
+Hold the A button on your gamepad when its name shows up until the script tells you to release it
+Trying joystick 0
+gamepad initialized
+welcome driver #1
+driver connected at  ('192.168.31.217', 42060)

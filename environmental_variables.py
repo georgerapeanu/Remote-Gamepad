@@ -12,11 +12,13 @@ ROBOT_PORT = 6969#port used to communicate with robot, has to be the same with t
 ROBOT = (ROBOT_ADDRESS,ROBOT_PORT);
 
 FORMAT = "utf-8";#Message encoding, has to be the same with the one int RemoteDrive.java
-HOST_PORT = 42069#host port
+HOST_PORT = 42060#host port
 
 #Host ip address
 #HOST_ADDRESS = socket.gethostbyname(socket.gethostname()) #This should be used when running in LAN, mainly for testing
-HOST_ADDRESS = "172.22.216.79"; #This should be the host's public address
+#HOST_ADDRESS = "192.168.31.196"; #This should be the host's public address
+#HOST_ADDRESS = "172.29.177.217"
+HOST_ADDRESS = "192.168.31.217"
 
 HOST = (HOST_ADDRESS,HOST_PORT);
 
