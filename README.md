@@ -76,6 +76,7 @@ This is most likely the only error you would encounter. In this case, you must c
   ### Developers
 
 [Râpeanu George-Alexandru](https://github.com/georgerapeanu) 
+
 [Lazăr Mihai-Ilie](https://github.com/meutzitzu)
 
 ### Testers
