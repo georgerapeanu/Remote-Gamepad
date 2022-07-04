@@ -75,11 +75,12 @@ This is most likely the only error you would encounter. In this case, you must c
 
   ### Developers
 
-Rapeanu George 
-
-Lazar Mihai
+[Râpeanu George-Alexandru](https://github.com/georgerapeanu) 
+[Lazăr Mihai-Ilie](https://github.com/meutzitzu)
 
 ### Testers
+
+[Moldovan Daniel-Gelu](https://github.com/dany002)
 
 # Disclaimer:
 
